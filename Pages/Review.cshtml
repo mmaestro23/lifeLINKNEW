@@ -1,5 +1,5 @@
 ﻿@page
-@model lifeLINK.Pages.DonateModel
+@model lifeLINK.Pages.ReviewModel
 @{
 }
 
@@ -128,7 +128,7 @@
         </div>
     </div>
     <!-- Breadcrumb End -->
-        <!-- Question Section Begin -->
+    <!-- Question Section Begin -->
     <section class="question-section spad">
         <div class="container">
             <div class="row">
@@ -141,6 +141,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <form method="post" class="question-form">
+                        <input type="hidden" name="id" value="@Model.userInfo.id" />
                         <input type="text" name="nid" value="@Model.userInfo.nid" placeholder="National ID">
                         <input type="text" name="fullnames" value="@Model.userInfo.fullNames" placeholder="Full Names">
                         <input type="email" name="email" value="@Model.userInfo.email" placeholder="Email">
@@ -148,22 +149,10 @@
                         <input type="text" name="address" value="@Model.userInfo.address" placeholder="Address">
                         <input type="text" name="bg" value="@Model.userInfo.bloodGroup" placeholder="Blood Group">
 
-                        <!--<select name="bg" value="@Model.userInfo.bloodGroup">
-                            <option value="">Select Your blood group</option>
-                            <option value="A+">A+</option>
-                            <option value="A-">A-</option>
-                            <option value="B+">B+</option>
-                            <option value="B-">B-</option>
-                            <option value="AB+">AB+</option>
-                            <option value="AB-">AB-</option>
-                            <option value="O+">O+</option>
-                            <option value="O-">O-</option>
-                        </select>-->
-
                         <input type="text" name="rhfactor" value="@Model.userInfo.RHfactor" placeholder="RH Factor">
                         <input type="text" name="organ" value="@Model.userInfo.organ" placeholder="Organ">
                         <input type="text" name="description" value="@Model.userInfo.description" placeholder="Tell us about you">
-                        <button type="submit" class="site-btn">Donate</button>
+                        <button type="submit" class="site-btn">Update</button>
                     </form>
                 </div>
                 <div class="col-lg-6">

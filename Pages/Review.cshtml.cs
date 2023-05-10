@@ -4,17 +4,53 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace lifeLINK.Pages
 {
-    public class DonateModel : PageModel
+    public class ReviewModel : PageModel
     {
         public UserInfo userInfo = new UserInfo();
         public String errorMessage = "";
         public String successMessage = "";
         public void OnGet()
         {
+            String id = Request.Query["id"];
+            try
+            {
+                String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=lifeLink;Integrated Security=True";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    String sql = "SELECT * FROM donated WHERE id=@id";
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", id);
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                userInfo.id = "" + reader.GetInt32(0);
+                                userInfo.nid = reader.GetString(1);
+                                userInfo.fullNames = reader.GetString(2);
+                                userInfo.email = reader.GetString(3);
+                                userInfo.phone = reader.GetString(4);
+                                userInfo.address = reader.GetString(5);
+                                userInfo.bloodGroup = reader.GetString(6);
+                                userInfo.RHfactor = reader.GetString(7);
+                                userInfo.organ = reader.GetString(8);
+                                userInfo.description = reader.GetString(9);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorMessage = ex.Message;
+            }
         }
 
-        public void OnPost()
+        public void OnPost() 
         {
+            userInfo.id = Request.Form["id"];
             userInfo.nid = Request.Form["nid"];
             userInfo.fullNames = Request.Form["fullnames"];
             userInfo.email = Request.Form["email"];
@@ -38,9 +74,9 @@ namespace lifeLINK.Pages
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    String sql = "INSERT INTO donated " +
-                                 "(nid, fullNames, email, phone, address, bloodGroup, RHfactor, organ, description) VALUES " +
-                                 "(@nid, @fullnames, @email, @phone, @address, @bg, @rhfactor, @organ, @description);";
+                    String sql = "UPDATE donated " +
+                                 "SET nid=@nid, fullnames=@fullnames, email=@email, phone=@phone, address=@address, bloodGroup=@bg, RHfactor=@rhfactor, organ=@organ, description=@description " +
+                                 "WHERE id=@id";
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         command.Parameters.AddWithValue("@nid", userInfo.nid);
@@ -52,6 +88,7 @@ namespace lifeLINK.Pages
                         command.Parameters.AddWithValue("@rhfactor", userInfo.RHfactor);
                         command.Parameters.AddWithValue("@organ", userInfo.organ);
                         command.Parameters.AddWithValue("@description", userInfo.description);
+                        command.Parameters.AddWithValue("@id", userInfo.id);
 
                         command.ExecuteNonQuery();
                     }
@@ -75,7 +112,7 @@ namespace lifeLINK.Pages
 
             successMessage = "Organ Donated Successfully";
 
-            Response.Redirect("/");
+            Response.Redirect("/Admin");
         }
 
         public class UserInfo

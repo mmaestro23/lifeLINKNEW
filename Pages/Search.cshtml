@@ -138,20 +138,34 @@
                         </div>
                         <div class="register__form">
                             <form action="#">
-                                <input type="text" placeholder="ex: Heart">
+                                <input type="text" name="search" placeholder="ex: Heart">
                                 <button type="submit" class="site-btn">Search</button>
                             </form>
                         </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
+    <!-- Search Section End-->
+    <!-- Services Section Begin -->
+    <section class="services-section spad">
+        <div class="container">
+            <div class="row">
+                @foreach (var item in Model.listDonors)
+                { 
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="services__item">
+                            <h5>@item.fullNames</h5>
+                            <span>@item.nid</span>
+                                <p>@item.description</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+    <!-- Services Section End -->
     <!-- Footer Section Begin -->
     <footer class="footer-section">
         <div class="footer__top">
