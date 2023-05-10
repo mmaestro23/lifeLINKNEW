@@ -30,12 +30,12 @@ namespace lifeLINK.Pages
 
             try
             {
-                String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=lifeLink;Integrated Security=True";
+                String connectionString = "Data Source=DRKST-MTTR\\SQLEXPRESS;Initial Catalog=lifelink;Integrated Security=True";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    String sql = "INSERT INTO Users " +
+                    String sql = "INSERT INTO UsersTable " +
                                  "(firstName, lastName, email, phone, address, password) VALUES " +
                                  "(@fname, @lname, @email, @phone, @address, @password);";
                     using (SqlCommand command = new SqlCommand(sql, connection))

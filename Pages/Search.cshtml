@@ -1,7 +1,6 @@
 ﻿@page
-@model lifeLINK.Pages.LoginModel
+@model lifeLINK.Pages.SearchModel
 @{
-
 }
 
 <!DOCTYPE html>
@@ -13,7 +12,7 @@
     <meta name="keywords" content="Deerhost, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LifeLink - Login</title>
+    <title>LifeLink - Contact</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap"
@@ -49,11 +48,10 @@
                 <li><a href="/Index">Home</a></li>
                 <li><a href="/About">About</a></li>
                 <li><a href="/Donate">Donate</a></li>
-                <li><a href="/Search">Search</a></li>
+                <li class="active"><a href="/Search">Search</a></li>
                 <li><a href="/Contact">Contact</a></li>
             </ul>
-        </nav>
-        <div id="mobile-menu-wrap"></div>
+		</nav>
         <div class="offcanvas__auth">
             <ul>
                 <li><a href="/Signup"><span class="fa fa-user"></span> Login / Register</a></li>
@@ -103,7 +101,7 @@
                             <li><a href="/Index">Home</a></li>
                             <li><a href="/About">About</a></li>
                             <li><a href="/Donate">Donate</a></li>
-                            <li><a href="/Search">Search</a></li>
+                            <li class="active"><a href="/Search">Search</a></li>
                             <li><a href="/Contact">Contact</a></li>
                         </ul>
                     </nav>
@@ -122,109 +120,38 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb__option">
                         <a href="/Index"><span class="fa fa-home"></span> Home</a>
-                        <span>Login</span>
+                        <span>Contact</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Breadcrumb End -->
-    <!-- Question Section Begin -->
-    <section class="question-section spad">
+    <!-- Search Section Begin -->
+    <section class="register-domain spad">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h3>Login to your account?</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="question__accordin">
-                        <div class="accordion" id="accordionExample">
-                            <div class="card">
-                                <div class="card-heading active">
-                                    <a class="active" data-toggle="collapse" data-target="#collapseOne">
-                                        How do I cancel and delete my account?
-                                    </a>
-                                </div>
-                                <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse
-                                            ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
-                                            facilisis.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-heading">
-                                    <a data-toggle="collapse" data-target="#collapseTwo">
-                                        Can I get my website listed in Google?
-                                    </a>
-                                </div>
-                                <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse
-                                            ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
-                                            facilisis.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-heading">
-                                    <a data-toggle="collapse" data-target="#collapseThree">
-                                        Can I run a business?
-                                    </a>
-                                </div>
-                                <div id="collapseThree" class="collapse" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse
-                                            ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
-                                            facilisis.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-heading">
-                                    <a data-toggle="collapse" data-target="#collapseFour">
-                                        Does ArkaHost offer phone support?
-                                    </a>
-                                </div>
-                                <div id="collapseFour" class="collapse" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse
-                                            ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
-                                            facilisis.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="register__text">
+                        <div class="section-title">
+                            <h3>Find your donor now!</h3>
                         </div>
+                        <div class="register__form">
+                            <form action="#">
+                                <input type="text" placeholder="ex: Heart">
+                                <button type="submit" class="site-btn">Search</button>
+                            </form>
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+                        </p>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <form method="post" class="question-form">
-                        <input type="email" name="email" value="@Model.userInfo.email" placeholder="Email">
-                        <input type="password" name="password" value="@Model.userInfo.password" placeholder="Password">
-                        <button type="submit" class="site-btn">Login</button>
-                    </form>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Question Section End -->
+
     <!-- Footer Section Begin -->
     <footer class="footer-section">
         <div class="footer__top">
@@ -252,7 +179,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="footer__text-about">
                             <div class="footer__logo">
-                                <a href="/"><img src="img/logo.png" alt=""></a>
+                                <a href="/Index"><img src="img/logo.png" alt=""></a>
                             </div>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -310,8 +237,6 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
-
 </body>
 
 </html>
